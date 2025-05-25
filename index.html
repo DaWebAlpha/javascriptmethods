@@ -82,7 +82,10 @@
         console.log(findName);
 
         let highest = Math.max(...students.map((student) => student.subject.Maths))
-        console.log(highest);
+
+        const findInd = students.findIndex(s => s.subject.Maths === highest);
+
+        console.log(highest, findInd);
     </script>
 </body>
 </html>

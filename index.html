@@ -74,6 +74,15 @@
 
         const avegMaths = students.reduce((acc, cumm) => acc + cumm.subject.Maths, 0)/ students.length;
         console.log(avegMaths);
+
+
+        /* find */
+
+        const findName = students.find((s) => s.sex === "Female")
+        console.log(findName);
+
+        let highest = Math.max(...students.map((student) => student.subject.Maths))
+        console.log(highest);
     </script>
 </body>
 </html>

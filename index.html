@@ -54,12 +54,26 @@
             }
         ]
 
+        /* map method */
         const getNames = students.map((student) => {
             return(
                 student.name
             )
         })
         console.log(getNames);
+
+        /* filter */
+
+        const filterOut = students.filter((student) => student.sex === "Male");
+        const getfilterOut = filterOut.forEach(student=>{
+            console.log(student.name)
+        })
+        console.log(filterOut);
+
+        /* reduce*/
+
+        const avegMaths = students.reduce((acc, cumm) => acc + cumm.subject.Maths, 0)/ students.length;
+        console.log(avegMaths);
     </script>
 </body>
 </html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const students = [
+            {
+                name: "Alice",
+                age: 34,
+                sex:"Male",
+                subject:{
+                    "Maths": 79,
+                    "science": 89,
+                    "French": 67,
+                    "Social Studies": 15,
+                }
+            },
+            {
+                name: "Andrew",
+                age: 30,
+                sex:"Male",
+                subject:{
+                    "Maths": 50,
+                    "science": 67,
+                    "French": 78,
+                    "Social Studies": 90,
+                }
+            },
+            {
+                name: "Ama",
+                age: 25,
+                sex:"Female",
+                subject:{
+                    "Maths": 50,
+                    "science": 58,
+                    "French": 78,
+                    "Social Studies": 80,
+                }
+            },
+            {
+                name: "Anita",
+                age: 22,
+                sex:"Female",
+                subject:{
+                    "Maths": 30,
+                    "science": 70,
+                    "French": 67,
+                    "Social Studies": 81,
+                }
+            }
+        ]
+
+        const getNames = students.map((student) => {
+            return(
+                student.name
+            )
+        })
+        console.log(getNames);
+    </script>
+</body>
+</html>

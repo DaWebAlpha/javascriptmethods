@@ -140,7 +140,29 @@
         console.log(students.length);
 
 
-        
+        /* slice */
+        const firstTwo = students.slice(0, 2);
+        const logOut = firstTwo.map(s => s.name);
+
+        console.log(logOut);
+        console.log(students);
+
+
+        /* splice */
+        students.splice(1, 1, {
+                name: "Augustine",
+                age: 27,
+                sex:"Male",
+                subject:{
+                    "Maths": 80,
+                    "science": 40,
+                    "French": 69,
+                    "Social Studies": 81,
+                }
+            })
+        console.log(students);
+
+
     </script>
 </body>
 </html>

@@ -96,6 +96,38 @@
         const everyCheck = students.every(s => s.age > 20);
         console.log(everyCheck);
 
+        /* includes */
+        const checkIncludes = students.filter(s => s.name.includes("Ama"))
+        console.log(checkIncludes);
+
+        /* indexOf*/
+
+        const indexName = students.map(student => student.name)
+        console.log(indexName.indexOf("Ama"));
+
+
+        /* push */
+        students.push(
+            {
+                name: "Ansah",
+                age: 27,
+                sex: "Male",
+                subject:{
+                    "Maths": 80,
+                    "science": 78,
+                    "French": 88,
+                    "Social Studies": 60,
+                }
+
+            }
+        )
+        console.log(students);
+
+        /* LENGTH */
+        console.log(students.length);
+
+        
+
     </script>
 </body>
 </html>

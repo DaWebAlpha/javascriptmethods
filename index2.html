@@ -6,11 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        
-    </div>
     <script>
-        const students = [
+         const students = [
             {
                 name: "Adams",
                 age: 17,
@@ -232,29 +229,11 @@
                 }
             },
         ];
-        
-        let getName = students
-        .filter(students => students.gender === "Male")
-        .sort((a, b) => a.age - b.age)
-        .map(s => s.name)
 
-        document.write(getName);
-        
-
-        /* CALCULATE TOTAL */
-        let studentTotal = students
-                            .map(student =>{
-                                let total = Object.values(student.subjects);
-                                return {
-                                    name: student.name,
-                                    age: student.age,
-                                    total: total.reduce((acc, cumm) => acc + cumm, 0),
-                                }
-                                
-                            })
-                            .sort((a, b) => a.total - b.total);
-        console.log(studentTotal);
-        
+        const above80 = students
+                        .filter((student) => Object.values(student.subjects).some(score => score > 80))
+                        .map(student => student.name);
+        console.log(above80);
     </script>
 </body>
 </html>

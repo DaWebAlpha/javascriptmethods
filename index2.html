@@ -246,10 +246,28 @@
         const avegFemaleMaths = (totalMathsScoreFemale / femaleStudent).toFixed(2)
         console.log(avegFemaleMaths);
 
+
+
+        /*Get the names and average scores of male students who are 17 years old. */
         const avegMalesGreaterThan17 = students
                                        .filter(student => student.gender === 'Male' && student.age === 17)
-                                       .map(getName => getName.name)
+                                       .map(student =>{
+                                        let val = Object.values(student.subjects)
+                                        let averageScore = (val.reduce((sum, curr) => sum + curr, 0)) /(val.length)
+                                        return(
+                                            {
+                                                name: student.name,
+                                                averageScore: averageScore.toFixed(2),
+                                            }
+                                        ) 
+                                       })
         console.log(avegMalesGreaterThan17);
+
+
+        /*Count how many students scored above 75 in science.*/
+
+        let scoreAbove75Science = students.filter(student =>  student.subjects["science"] > 75).length;
+        console.log(scoreAbove75Science)
 
     </script>
 </body>

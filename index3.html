@@ -254,6 +254,13 @@
             console.log(value);
         })
         console.log(femaleStudents);
+
+
+        /* List all students older than 17. */
+        let studentsOlder17 = students
+                             .filter(student => student.age > 17)
+                             .map(student => student.name);
+        console.log(studentsOlder17.join(" \n"));
     </script>
 </body>
 </html>

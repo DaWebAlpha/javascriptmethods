@@ -246,6 +246,14 @@
     ).toFixed(2);
         console.log(avegAge);
         
+        /* List all female students. */
+        let femaleStudents = students
+                             .filter(student => student.gender === "Female")
+                             .map(student => student.name);
+        femaleStudents.forEach((value) => {
+            console.log(value);
+        })
+        console.log(femaleStudents);
     </script>
 </body>
 </html>

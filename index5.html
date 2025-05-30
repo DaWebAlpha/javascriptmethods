@@ -6,9 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        
-    </div>
     <script>
         const students = [
             {
@@ -233,186 +230,40 @@
                 }
             },
         ];
-
-
-        /* PRINT STUDENTS NAMES */
-        let printStudents = students.map(student => student.name);
         
-        printStudents.forEach((value) =>{
-            console.log(value);
-        })
-
-        /* Get the average age of all students. */
-        let avegAge = (students
-                      .map(student => student.age)
-                      .reduce((sum, curr) => sum + curr, 0) / students.length
-    ).toFixed(2);
-        console.log(avegAge);
         
-        /* List all female students. */
-        let femaleStudents = students
-                             .filter(student => student.gender === "Female")
-                             .map(student => student.name);
-        femaleStudents.forEach((value) => {
-            console.log(value);
-        })
-        console.log(femaleStudents);
+        console.log(students.length);
+        
+        students.push(
+            {
+                name: "Alex",
+                age: 20,
+                gender: "Male",
+                subjects: {
+                    english: 81,
+                    maths: 84,
+                    science: 86,
+                    socialStudies: 82,
+                }
 
-
-        /* List all students older than 17. */
-        let studentsOlder17 = students
-                             .filter(student => student.age > 17)
-                             .map(student => student.name);
-        console.log(studentsOlder17.join(" \n"));
-
-        /* Print the names of students who scored above 80 in English. */
-        let above80English = students
-                            .filter(student => student.subjects["english"] > 80)
-                            .map(stu => stu.name)
-        console.log(above80English.join(", "));
-
-
-        /* Calculate the average score for 
-           each student across all subjects 
-           and add it as a new property 
-        */
-
-        let avegScore = students.map(student => {
-            let score = Object.values(student.subjects)
-            let aveg = (score.reduce((sum, curr) => sum + curr, 0) / score.length).toFixed(2)
-            return({
-                ...student,
-                averageScore: aveg,
-        })
-        })
-        console.log(avegScore);
-
-        /* Find all students named “Kojo” or “Yaw”. */
-
-        const studentsNamedKojoYaw = students.filter(student => 
-            student.name === "Kojo" || student.name === "Yaw"
-        );
-
-        /* OR */
-        let targetNames = ["Yaw", "Kojo"];
-        let studentsNamedKojoYaw1 = students.filter(student =>
-            targetNames.includes(student.name)
+            }
         )
-        console.log(studentsNamedKojoYaw1);
 
-        /* Group students by gender and count how many are in each group. */
-
-        let groupedMale = [];
-        let groupedFemale = [];
-        let groupStudents = students.forEach(student =>{
-            if(student.gender === "Male"){    
-                groupedMale.push(student)  
+        students.pop();
+        students.unshift({
+            name: "Ampofo",
+            age: 22,
+            gender: "Male",
+            subjects: {
+                    english: 66,
+                    maths: 66,
+                    science: 66,
+                    socialStudies: 66,
             }
-            else{
-                groupedFemale.push(student);
-            }
+
         })
-
-        console.log(groupedMale, "Male Total: " + groupedMale.length);
-        console.log(groupedFemale, "Female Total: " + groupedFemale.length);
-
-
-        /* Sort the students by their average score (highest to lowest). */
-
-        let studentsAveg = students.map(student =>{
-            let score = Object.values(student.subjects);
-            let avegScore = (score.reduce((sum, curr) => sum + curr, 0) / score.length)
-
-            return(
-                {
-                    ...student,
-                    Average_Score: avegScore,
-                }
-            )
-        });
-        console.log(studentsAveg.sort((a, b) => b.Average_Score - a.Average_Score));
-
-
-        /* Find students whose name starts with "A"*/
-
-        const studentsNameStartA = students.filter(student => student.name.startsWith("A"));
-        console.log(studentsNameStartA);
-
-        
-        /* students who got above 50 in all subjects */
-
-        const above50AllSubjects = students.filter(student => {
-            let score = Object.values(student.subjects)
-
-            let passedStudents = score.every(sco => sco >= 50)
-            return passedStudents;
-        })
-        console.log(above50AllSubjects);
-
-
-        /*students who got above 70 in all subjects */
-
-        const studentsAbove70All = students.filter(student =>{
-            let scores = Object.values(student.subjects)
-            let passed = scores.every(sco => sco >= 70);
-
-            return passed;
-        })
-
-        console.log(studentsAbove70All);
-
-
-        /* Add a new field status to each student as "Pass" if their average is ≥ 70, otherwise "Fail". */
-
-        let studentsStatus = students.map(student => {
-            let score = Object.values(student.subjects);
-            let avegScore = score.reduce((sum, curr) => sum + curr, 0) / score.length
-            
-            return(
-                {
-                    ...student,
-                    'Average Score': avegScore,
-                    Status: avegScore > 70 ? "Passed" : "Failed"
-                }
-            )
-        })
-
-
-        console.log(studentsStatus);
-
-        /* Write a function that returns a summary report with: 
-        
-            Total number of students
-
-            Number of males vs females
-
-            Average score per subject
-        */
-
-        const summary = (students)=>{
-            let totalNumberStudents = students.length;
-            let totalMales = students.filter(student => student.gender === "Male").length;
-            let totalFemales = students.filter(student => student.gender === "Female").length;
-            let englishAveg = students.map(student => {
-                let score = student.subjects["english"];
-                let aveg = score.reduce((sum, curr) => sum + curr, 0) / score.length;
-                
-                return aveg;
-            })
-            
-            return(
-                {
-                    "Total_Students": totalNumberStudents,
-                    "Total_Females": totalFemales,
-                    "Total_Males": totalMales,
-                    "English": englishAveg,
-
-                }
-            )
-        }
-        console.log(summary(students));
-
-        
+        console.log(students);
+        console.log(students.length);
     </script>
 </body>
 </html>

@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="container">
+        
+    </div>
     <script>
         const students = [
             {
@@ -284,6 +287,97 @@
         })
         console.log(avegScore);
 
+        /* Find all students named “Kojo” or “Yaw”. */
+
+        const studentsNamedKojoYaw = students.filter(student => 
+            student.name === "Kojo" || student.name === "Yaw"
+        );
+
+        /* OR */
+        let targetNames = ["Yaw", "Kojo"];
+        let studentsNamedKojoYaw1 = students.filter(student =>
+            targetNames.includes(student.name)
+        )
+        console.log(studentsNamedKojoYaw1);
+
+        /* Group students by gender and count how many are in each group. */
+
+        let groupedMale = [];
+        let groupedFemale = [];
+        let groupStudents = students.forEach(student =>{
+            if(student.gender === "Male"){    
+                groupedMale.push(student)  
+            }
+            else{
+                groupedFemale.push(student);
+            }
+        })
+
+        console.log(groupedMale, "Male Total: " + groupedMale.length);
+        console.log(groupedFemale, "Female Total: " + groupedFemale.length);
+
+
+        /* Sort the students by their average score (highest to lowest). */
+
+        let studentsAveg = students.map(student =>{
+            let score = Object.values(student.subjects);
+            let avegScore = (score.reduce((sum, curr) => sum + curr, 0) / score.length)
+
+            return(
+                {
+                    ...student,
+                    Average_Score: avegScore,
+                }
+            )
+        });
+        console.log(studentsAveg.sort((a, b) => b.Average_Score - a.Average_Score));
+
+
+        /* Find students whose name starts with "A"*/
+
+        const studentsNameStartA = students.filter(student => student.name.startsWith("A"));
+        console.log(studentsNameStartA);
+
+        
+        /* students who got above 50 in all subjects */
+
+        const above50AllSubjects = students.filter(student => {
+            let score = Object.values(student.subjects)
+
+            let passedStudents = score.every(sco => sco >= 50)
+            return passedStudents;
+        })
+        console.log(above50AllSubjects);
+
+
+        /*students who got above 70 in all subjects */
+
+        const studentsAbove70All = students.filter(student =>{
+            let scores = Object.values(student.subjects)
+            let passed = scores.every(sco => sco >= 70);
+
+            return passed;
+        })
+
+        console.log(studentsAbove70All);
+
+
+        /* Add a new field status to each student as "Pass" if their average is ≥ 70, otherwise "Fail". */
+
+        let studentsStatus = students.map(student => {
+            let score = Object.values(student.subjects);
+            let avegScore = score.reduce((sum, curr) => sum + curr, 0) / score.length
+            
+            return(
+                {
+                    ...student,
+                    'Average Score': avegScore,
+                    Status: avegScore > 70 ? "Passed" : "Failed"
+                }
+            )
+        })
+
+        console.log(studentsStatus);
     </script>
 </body>
 </html>

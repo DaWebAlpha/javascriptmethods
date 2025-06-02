@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* CONVERSIONS BETWEEN DATA TYPES */
+
+        /* To String */
+        let a = 20;
+        console.log(typeof a);
+        a = String(a);
+        console.log(typeof a);
+
+
+        /* conversion to boolean */
+        let b = "true";
+        console.log(typeof b);
+
+        b = Boolean(b);
+        console.log(typeof b);
+
+
+        /* conversion of Number */
+        let c = "20";
+        console.log(typeof c);
+        let d = Number(c)
+        console.log(typeof d)
+
+        /* conversion of Object */
+        let f = "star";
+        console.log(typeof f);
+        let g = Object(f);
+        console.log(typeof g);
+
+
+        /* Symbol conversion */
+        let s = "hello";
+        console.log(typeof s);
+        let p = Symbol(s);
+
+        console.log(typeof p)
+    </script>
+</body>
+</html>

@@ -231,53 +231,61 @@
             },
         ];
         
-        
-        console.log(students.length);
-        
-        students.push(
-            {
-                name: "Alex",
-                age: 20,
-                gender: "Male",
-                subjects: {
-                    english: 81,
-                    maths: 84,
-                    science: 86,
-                    socialStudies: 82,
-                }
 
-            }
-        )
+        /* map */
+        let num1 = [2, 4, 6, 8, 10];
+        const square = num1.map(n => n ** 2);
+        console.log(square);
 
-        students.pop();
-        students.unshift({
-            name: "Ampofo",
-            age: 22,
-            gender: "Male",
-            subjects: {
-                    english: 66,
-                    maths: 66,
-                    science: 66,
-                    socialStudies: 66,
-            }
+        /* map and filter on students */
 
-        })
-        console.log(students);
-        console.log(students.length);
+        const getName = students
+                    .map(student => student.name)
+                    .filter(student => student.startsWith("A"));
 
-        let arr1 = [2, 3, 4, 5];
-        let arr2 = [6, 7, 8, 9];
+        console.log(getName);
 
-        let arr = arr1.concat(arr2);
+        const outputName = students
+                           .filter(student => student.name.startsWith("A"))
+                           .map(student => student.name)
+        console.log(outputName);
+
+
+        /* Filter */
+        let arr = [];
+        for(let i = 1; i <= 10; i++){
+            arr.push(i);
+        }
+
         console.log(arr);
 
+        function even(n){
+            return n % 2 === 0;
+        }
 
-        let str = "My name is Ama";
-        let arr3 = str.split(" ");
-        let str2 = arr3.join("--");
+        const evenOutput = arr.filter(even);
+        
+        console.log(evenOutput);
 
-        console.log(arr3);
-        console.log(str2);
+
+        /* Reduce */
+        /* Average Total Female SCore */
+
+        const avegFemaleScore = students
+                                .filter(student => student.gender === "Female")
+                                .map(student => {
+                                    let score = Object.values(student.subjects);
+                                    let avegScore = Number((score.reduce((sum, curr) => sum + curr, 0) / score.length).toFixed(2))
+                                    return(
+                                        {
+                                            ...student,
+                                            "Average Score": avegScore,
+                                        }
+                                    )
+                                })
+        console.log(avegFemaleScore);
+
+        
     </script>
 </body>
 </html>

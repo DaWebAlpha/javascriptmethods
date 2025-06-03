@@ -7,18 +7,16 @@
 </head>
 <body>
     <script>
-        
-        /* EQUALITY OPERATOR */
-        function checkEqual(val){
-            if(val == 10){
+        //STRICTLY EQUALITY
+
+        function checkEquality(val){
+            if(val === 10){
                 return "Equal"
             }
             return "Not Equal";
         }
-
         var vat = '10';
-        console.log(checkEqual(vat)); // Equal
-        /* THIS DOES A TYPE CONVERSION */
+        console.log(checkEquality(vat));
     </script>
 </body>
 </html>

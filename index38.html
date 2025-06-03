@@ -7,16 +7,15 @@
 </head>
 <body>
     <script>
-        /* LOCAL SCOPE TAKE PRECEDENCE OVER GLOBAL SCOPE */
-        var wear = "T-Shirt";
-
-        function dress(){
-            var wear = "Polo";
-            return wear;
+        function checkRain(willRain){
+            if(willRain){
+                return "It will rain today";
+            }
+            return "It will not rain";
         }
 
-        console.log(wear);
-        console.log(dress());
+        var isCloudy = true;
+        console.log(checkRain(isCloudy));
     </script>
 </body>
 </html>

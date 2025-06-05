@@ -7,7 +7,7 @@
 </head>
 <body>
     <script>
-        //Objects
+        //updating Properties and deleting Properties
         var dog = {
             "name": "quincy",
             "legs": 4,
@@ -16,15 +16,9 @@
             "friends": [],
         }
 
-        console.log("Name: " + dog["name"]);
-        console.log("Legs: " + dog["legs"]);
-        console.log(dog.name);
-        console.log(dog.legs);
-        console.log(dog.age);
-
-        dog.name = "Africa";
-        dog.friends.push("Pappy", "Austin");
-        console.log(dog.friends);
+        delete dog.legs;
+        dog.family = "Mafia";
+        console.log(dog);
 
     
 

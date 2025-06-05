@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function completeLookUp(val){
+            var result = "";
+
+            var lookup = {
+                "alpha": "Anago",
+                "Omega": "Ananse",
+                "Beta": "Ananka",
+
+            }
+            result = lookup[val];
+            return result;
+        }
+
+        console.log(completeLookUp("alpha"));
+        console.log(completeLookUp("Beta"));
+        
+
+
+    </script>
+</body>
+</html>

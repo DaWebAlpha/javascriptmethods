@@ -1,3 +1,5 @@
+
+//FOR LOOP FOR CALCULATING TOTAL IN ARRAY
 var myArr = [2, 4, 6, 8, 10];
 let total = 0;
 

@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script src="index53.js">
-        // Setup
+ // Setup
         var collection = {
             "2548": {
               "album": "Slippery When Wet",
@@ -53,7 +44,3 @@
         // Alter values below to test your code
         updateRecords(2468)
         console.log(updateRecords(5439, "artist", "ABBA"));
-
-    </script>
-</body>
-</html>
